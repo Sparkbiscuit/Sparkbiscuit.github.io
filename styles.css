@@ -1,0 +1,178 @@
+/* Hearthlight — Filuma's design language, translated for the web.
+   Tokens mirror AppTheme.swift (ember accent, dark-first surfaces). */
+
+:root {
+  --bg: #0f0f12;
+  --surface: #19191d;
+  --surface-2: #232327;
+  --border: rgba(255, 255, 255, 0.07);
+  --text: #f5f5f7;
+  --subtle: #9a9aa2;
+  --faint: #86868e;
+  --ember: #c1571f;
+  --ember-hi: #cf7c50;
+  --ember-soft: #dfa88b;
+  --radius-card: 16px;
+  --radius-group: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Nunito", -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  /* The hearth glow: a warm breath at the top of the screen. */
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(193, 87, 31, 0.13), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 110%, rgba(193, 87, 31, 0.07), transparent 70%);
+  background-attachment: fixed;
+}
+
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 72px 24px 48px;
+}
+
+/* Screen-title treatment: white holds through the first third,
+   then melts into ember-soft. */
+.hearth-title {
+  /* fit-content keeps the gradient spanning the glyphs, not the column. */
+  width: fit-content;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: linear-gradient(100deg, #f5f5f7 30%, var(--ember-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h1 {
+  font-size: 44px;
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 40px 0 12px;
+}
+
+p {
+  margin-bottom: 14px;
+}
+
+a {
+  color: var(--ember-soft);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(223, 168, 139, 0.35);
+}
+
+a:hover {
+  color: var(--ember-hi);
+  border-bottom-color: var(--ember-hi);
+}
+
+.tagline {
+  color: var(--subtle);
+  font-size: 19px;
+  margin-top: 14px;
+}
+
+.kicker {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 10px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-group);
+  padding: 24px 28px;
+  margin: 28px 0;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.meta {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--faint);
+}
+
+ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+li::marker {
+  color: var(--ember);
+}
+
+footer {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px 56px;
+  color: var(--faint);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+}
+
+footer .rule {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 20px;
+}
+
+footer nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: var(--subtle);
+  border-bottom: none;
+}
+
+footer a:hover {
+  color: var(--ember-soft);
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 34px;
+  }
+
+  main {
+    padding-top: 56px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
